@@ -24,17 +24,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Row(
+            children: <Widget>[
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Image.asset('images/sample.png')),
+              Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text('筋トレ用', style: TextStyle(fontSize: 100)))
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:counter_app/view/start_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final NumCountProvider = StateProvider((_) => 0.0);
+final CurrentCountProvider = StateProvider((_) => 0.0);
+final tempoProvider = StateProvider((_) => 30.0);
+final setProvider = StateProvider((_) => 3.0);
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const StartPage(title: 'Flutter Demo Home Page'),
+      home: const StartPage(),
     );
   }
 }

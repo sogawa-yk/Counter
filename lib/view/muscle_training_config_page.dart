@@ -1,21 +1,11 @@
+import 'package:counter_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_app/view/muscle_count_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MuscleTrainingConfigPage extends StatefulWidget {
-  const MuscleTrainingConfigPage({Key? key}) : super(key: key);
-
+class MuscleTrainingConfigPage extends ConsumerWidget {
   @override
-  State<MuscleTrainingConfigPage> createState() =>
-      _MuscleTrainingConfigPageState();
-}
-
-class _MuscleTrainingConfigPageState extends State<MuscleTrainingConfigPage> {
-  double _count = 20;
-  double _tempo = 100;
-  double _numSet = 1;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(title: const Text('筋トレカウント設定')),
         body: Container(
@@ -23,41 +13,35 @@ class _MuscleTrainingConfigPageState extends State<MuscleTrainingConfigPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Center(child: Text('${_count}回')),
+                Center(child: Text('${ref.watch(NumCountProvider)}回')),
                 Slider(
-                  value: _count,
+                  value: ref.watch(NumCountProvider),
                   max: 100,
                   divisions: 20,
-                  label: _count.round().toString(),
+                  label: ref.watch(NumCountProvider).round().toString(),
                   onChanged: (double value) {
-                    setState(() {
-                      _count = value;
-                    });
+                    ref.read(NumCountProvider.state).state = value;
                   },
                 ),
-                Center(child: Text('${_tempo}bpm')),
+                Center(child: Text('${ref.watch(tempoProvider)}bpm')),
                 Slider(
-                    value: _tempo,
+                    value: ref.watch(tempoProvider),
                     max: 240,
                     min: 1,
                     divisions: 239,
-                    label: _tempo.round().toString(),
+                    label: ref.watch(tempoProvider).round().toString(),
                     onChanged: (double value) {
-                      setState(() {
-                        _tempo = value;
-                      });
+                      ref.read(tempoProvider.state).state = value;
                     }),
-                Center(child: Text('${_numSet}セット')),
+                Center(child: Text('${ref.watch(setProvider)}セット')),
                 Slider(
-                    value: _numSet,
+                    value: ref.watch(setProvider),
                     max: 10,
                     min: 1,
                     divisions: 9,
-                    label: _numSet.round().toString(),
+                    label: ref.watch(setProvider).round().toString(),
                     onChanged: (double value) {
-                      setState(() {
-                        _numSet = value;
-                      });
+                      ref.read(setProvider.state).state = value;
                     }),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

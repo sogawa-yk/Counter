@@ -3,7 +3,6 @@ import 'package:counter_app/view/start_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final NumCountProvider = StateProvider((_) => 0.0);
-final CurrentCountProvider = StateProvider((_) => 0.0);
 final tempoProvider = StateProvider((_) => 30.0);
 final setProvider = StateProvider((_) => 3.0);
 

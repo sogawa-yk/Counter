@@ -14,14 +14,21 @@ class MuscleCountPage extends ConsumerStatefulWidget {
 
 class MuscleCountPageState extends ConsumerState<MuscleCountPage> {
   @override
+  var count = 0;
+
   void initState() {
     super.initState();
-    if (ref.read(CurrentCountProvider.state).state <=
-        ref.read(NumCountProvider.state).state) {
-      Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-        ref.read(CurrentCountProvider.state).state++;
-      });
-    }
+    Timer.periodic(const Duration(seconds: 1), (Timer timer) {
+      count++;
+      if (count >= ref.read(NumCountProvider.state).state) {
+        timer.cancel();
+      }
+      if (mounted) {
+        setState(
+          () {},
+        );
+      }
+    });
   }
 
   @override
@@ -34,7 +41,7 @@ class MuscleCountPageState extends ConsumerState<MuscleCountPage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(ref.watch(CurrentCountProvider).toString(),
+            Text(count.toString(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 200)),
             Text(ref.watch(NumCountProvider).toString(),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 200)),

@@ -24,7 +24,7 @@ class StartPage extends ConsumerWidget {
                     child: Container(
                         width: 150,
                         height: 240,
-                        child: Image.asset('images/muscle.png',
+                        child: Image.asset('assets/images/muscle.png',
                             fit: BoxFit.contain))),
                 Padding(
                     padding: EdgeInsets.all(10),
@@ -53,7 +53,7 @@ class StartPage extends ConsumerWidget {
                     child: Container(
                         width: 150,
                         height: 240,
-                        child: Image.asset('images/jump.png',
+                        child: Image.asset('assets/images/jump.png',
                             fit: BoxFit.contain))),
                 Padding(
                     padding: EdgeInsets.all(10),
@@ -82,7 +82,7 @@ class StartPage extends ConsumerWidget {
                     child: Container(
                         width: 150,
                         height: 240,
-                        child: Image.asset('images/free.png',
+                        child: Image.asset('assets/images/free.png',
                             fit: BoxFit.contain))),
                 Padding(
                     padding: EdgeInsets.all(10),

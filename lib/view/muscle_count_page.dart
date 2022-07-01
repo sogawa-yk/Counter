@@ -49,7 +49,7 @@ class MuscleCountPageState extends ConsumerState<MuscleCountPage> {
             Container(
               width: 200,
               height: 340,
-              child: Image.asset(('images/muscle_now.png')),
+              child: Image.asset(('assets/images/muscle_now.png')),
             )
           ],
         )));

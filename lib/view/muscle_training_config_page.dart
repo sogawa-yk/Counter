@@ -2,6 +2,7 @@ import 'package:counter_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:counter_app/view/muscle_count_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:counter_app/providers/providers.dart';
 
 class MuscleTrainingConfigPage extends ConsumerWidget {
   @override

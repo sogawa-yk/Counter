@@ -1,9 +1,11 @@
 import 'package:counter_app/main.dart';
+import 'package:counter_app/view/finish_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:counter_app/view/rest_page.dart';
+import 'package:counter_app/providers/providers.dart';
 
 class MuscleCountPage extends ConsumerStatefulWidget {
   const MuscleCountPage({Key? key}) : super(key: key);
@@ -59,10 +61,18 @@ class MuscleCountPageState extends ConsumerState<MuscleCountPage> {
                   onPressed: _count < ref.read(NumCountProvider.state).state
                       ? null
                       : () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context) {
-                            return RestPage();
-                          }));
+                          if (ref.read(setCountProvider.state).state ==
+                              ref.read(setProvider)) {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return FinishPage();
+                            }));
+                          } else {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) {
+                              return RestPage();
+                            }));
+                          }
                         },
                   child: Text('NEXT'),
                 )

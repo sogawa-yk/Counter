@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:async';
 import 'package:counter_app/view/muscle_count_page.dart';
+import 'package:counter_app/providers/providers.dart';
 
 class RestPage extends ConsumerStatefulWidget {
   const RestPage({Key? key}) : super(key: key);
@@ -55,6 +56,7 @@ class RestPageState extends ConsumerState<RestPage> {
                   onPressed: _count < ref.read(restLengthProvider.state).state
                       ? null
                       : () {
+                          ref.read(setCountProvider.state).state++;
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) {
                             return MuscleCountPage();

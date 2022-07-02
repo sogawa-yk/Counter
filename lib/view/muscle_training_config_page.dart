@@ -13,6 +13,10 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+                Center(
+                    child: Text('1セットあたりの回数',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20))),
                 Center(child: Text('${ref.watch(NumCountProvider)}回')),
                 Slider(
                   value: ref.watch(NumCountProvider),
@@ -23,6 +27,10 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                     ref.read(NumCountProvider.state).state = value;
                   },
                 ),
+                Center(
+                    child: Text('一回当たりのカウントの速さ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20))),
                 Center(child: Text('${ref.watch(tempoProvider)}bpm')),
                 Slider(
                     value: ref.watch(tempoProvider),
@@ -33,6 +41,10 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                     onChanged: (double value) {
                       ref.read(tempoProvider.state).state = value;
                     }),
+                Center(
+                    child: Text('セット数',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20))),
                 Center(child: Text('${ref.watch(setProvider)}セット')),
                 Slider(
                     value: ref.watch(setProvider),
@@ -42,6 +54,20 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                     label: ref.watch(setProvider).round().toString(),
                     onChanged: (double value) {
                       ref.read(setProvider.state).state = value;
+                    }),
+                Center(
+                    child: Text('セット間の休憩時間の長さ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20))),
+                Center(child: Text('${ref.watch(restLengthProvider)}秒')),
+                Slider(
+                    value: ref.watch(restLengthProvider),
+                    max: 120,
+                    min: 10,
+                    divisions: 11,
+                    label: ref.watch(restLengthProvider).round().toString(),
+                    onChanged: (double value) {
+                      ref.read(restLengthProvider.state).state = value;
                     }),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

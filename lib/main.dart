@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:counter_app/view/start_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final NumCountProvider = StateProvider((_) => 0.0);
+final NumCountProvider = StateProvider((_) => 1.0);
 final tempoProvider = StateProvider((_) => 30.0);
 final setProvider = StateProvider((_) => 3.0);
+final restLengthProvider = StateProvider((_) => 20.0);
 
 void main() {
   runApp(ProviderScope(child: MyApp()));

@@ -2,12 +2,15 @@ import 'package:counter_app/main.dart';
 import 'package:counter_app/view/muscle_training_config_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class FinishPage extends ConsumerWidget {
-  const FinishPage({Key? key}) : super(key: key);
+  FinishPage({Key? key}) : super(key: key);
+  final _audio = AudioCache();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    _audio.play('audios/complete_sound.mp3');
     return Scaffold(
       appBar: AppBar(
         title: Text('カウントアプリ'),

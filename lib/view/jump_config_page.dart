@@ -4,7 +4,7 @@ import 'package:counter_app/view/muscle_count_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counter_app/providers/providers.dart';
 
-class MuscleTrainingConfigPage extends ConsumerWidget {
+class JumpConfigPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -21,7 +21,7 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                 Center(child: Text('${ref.watch(NumCountProvider)}回')),
                 Slider(
                   value: ref.watch(NumCountProvider),
-                  max: 100,
+                  max: 500,
                   divisions: 20,
                   label: ref.watch(NumCountProvider).round().toString(),
                   onChanged: (double value) {
@@ -35,9 +35,9 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                 Center(child: Text('${ref.watch(tempoProvider)}bps')),
                 Slider(
                     value: ref.watch(tempoProvider),
-                    max: 1,
-                    min: 0.1,
-                    divisions: 9,
+                    max: 3,
+                    min: 0.5,
+                    divisions: 5,
                     label: ref.watch(tempoProvider).round().toString(),
                     onChanged: (double value) {
                       ref.read(tempoProvider.state).state = value;

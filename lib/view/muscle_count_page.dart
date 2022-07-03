@@ -20,7 +20,7 @@ class MuscleCountPageState extends ConsumerState<MuscleCountPage> {
 
   void initState() {
     super.initState();
-    Timer.periodic(Duration(milliseconds: 60000 ~/ ref.read(tempoProvider)),
+    Timer.periodic(Duration(milliseconds: 1000 ~/ ref.read(tempoProvider)),
         (Timer timer) {
       if (mounted) {
         _count++;

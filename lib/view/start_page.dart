@@ -2,6 +2,7 @@ import 'package:counter_app/main.dart';
 import 'package:counter_app/view/muscle_training_config_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:counter_app/view/jump_config_page.dart';
 
 class StartPage extends ConsumerWidget {
   const StartPage({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class StartPage extends ConsumerWidget {
                             onPressed: () => {
                                   Navigator.of(context).push(
                                       MaterialPageRoute(builder: (context) {
-                                    return MuscleTrainingConfigPage();
+                                    return JumpConfigPage();
                                   }))
                                 },
                             style: ElevatedButton.styleFrom(

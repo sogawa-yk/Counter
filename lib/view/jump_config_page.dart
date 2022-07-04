@@ -73,7 +73,6 @@ class JumpConfigPage extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(onPressed: () {}, child: Text('Preview')),
                     ElevatedButton(
                         onPressed: () => {
                               Navigator.of(context)

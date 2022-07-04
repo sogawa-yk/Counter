@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:counter_app/view/muscle_count_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:counter_app/providers/providers.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'dart:async';
 
 class MuscleTrainingConfigPage extends ConsumerWidget {
+  final _audio = AudioCache();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -73,7 +76,6 @@ class MuscleTrainingConfigPage extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(onPressed: () {}, child: Text('Preview')),
                     ElevatedButton(
                         onPressed: () => {
                               Navigator.of(context)

@@ -75,35 +75,6 @@ class StartPage extends ConsumerWidget {
                             child: Text('縄跳び'))))
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Container(
-                        width: 150,
-                        height: 240,
-                        child: Image.asset('assets/images/free.png',
-                            fit: BoxFit.contain))),
-                Padding(
-                    padding: EdgeInsets.all(10),
-                    child: SizedBox(
-                        width: 200,
-                        height: 50,
-                        child: ElevatedButton(
-                            onPressed: () => {
-                                  Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context) {
-                                    return MuscleTrainingConfigPage();
-                                  }))
-                                },
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.blue,
-                              elevation: 16,
-                            ),
-                            child: Text('FREE'))))
-              ],
-            )
           ])),
     );
   }
